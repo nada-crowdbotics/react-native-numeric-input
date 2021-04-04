@@ -21,7 +21,7 @@ export default class NumericInput extends Component {
 
     // this.props refers to the new props
     componentDidUpdate() {
-        const initSent = !(this.props.initValue !== 0 && !this.props.initValue); 
+        const initSent = !(this.props.initValue !== 0 && !this.props.initValue);
 
         // compare the new value (props.initValue) with the existing/old one (this.state.value)
         if (this.props.initValue !== this.state.value && initSent) {
@@ -32,7 +32,7 @@ export default class NumericInput extends Component {
             });
         }
     }
-    
+
     updateBaseResolution = (width, height) => {
         calcSize = create({ width, height })
     }
@@ -118,7 +118,6 @@ export default class NumericInput extends Component {
             if (parsedValue !== this.props.value)
                 this.props.onChange && this.props.onChange(parsedValue)
             this.setState({ value: parsedValue, legal, stringValue: parsedValue.toString() })
-
         }
     }
     onBlur = () => {
@@ -156,6 +155,7 @@ export default class NumericInput extends Component {
     }
 
     render() {
+        const buttonStyle = this.props.buttonStyle
         const editable = this.props.editable
         const sepratorWidth = (typeof this.props.separatorWidth === 'undefined') ? this.props.sepratorWidth : this.props.separatorWidth;//supporting old property name sepratorWidth
         const borderColor = this.props.borderColor
@@ -192,7 +192,8 @@ export default class NumericInput extends Component {
                     borderTopRightRadius: borderRadiusTotal,
                     borderBottomRightRadius: borderRadiusTotal
                 }
-                : {}]
+                : {},
+            buttonStyle ? {...buttonStyle} : {}]
         const leftButtonStyle = [
             {
                 position: 'absolute',
@@ -207,7 +208,8 @@ export default class NumericInput extends Component {
             },
             this.props.rounded ?
                 { borderTopLeftRadius: borderRadiusTotal, borderBottomLeftRadius: borderRadiusTotal }
-                : {}]
+                : {},
+            buttonStyle ? {...buttonStyle} : {}]
         const inputWraperStyle = {
             alignSelf: 'center',
             borderLeftColor: borderColor,

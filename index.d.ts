@@ -32,6 +32,7 @@ declare module 'react-native-numeric-input' {
     reachMinIncIconStyle?: ViewStyle
     reachMinDecIconStyle?: ViewStyle
     extraTextInputProps?: object
+    buttonStyle?: ViewStyle
   }
 
   export default class NumericInput extends React.Component<
