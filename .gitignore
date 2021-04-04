@@ -1,7 +1,7 @@
 # node.js
 #
+.idea
 node_modules/
 npm-debug.log
 yarn-error.log
 Example/node_modules
-node_modules
